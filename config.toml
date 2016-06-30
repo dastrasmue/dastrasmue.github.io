@@ -1,4 +1,4 @@
-baseurl = "http://dastrasmue.github.io/hugo/"
+baseurl = "https://dastrasmue.github.io/hugo/"
 languageCode = "en-us"
 title = "Material Docs"
 theme = "hugo-material-docs"
