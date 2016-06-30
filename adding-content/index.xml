@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Adding-contents on Material Docs</title>
-    <link>http://replace-this-with-your-hugo-site.com/adding-content/</link>
+    <link>http://dastrasmue.github.io/hugo/adding-content/</link>
     <description>Recent content in Adding-contents on Material Docs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 09 Mar 2016 19:56:50 +0100</lastBuildDate>
-    <atom:link href="http://replace-this-with-your-hugo-site.com/adding-content/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://dastrasmue.github.io/hugo/adding-content/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Adding content</title>
-      <link>http://replace-this-with-your-hugo-site.com/adding-content/</link>
+      <link>http://dastrasmue.github.io/hugo/adding-content/</link>
       <pubDate>Wed, 09 Mar 2016 19:56:50 +0100</pubDate>
       
-      <guid>http://replace-this-with-your-hugo-site.com/adding-content/</guid>
+      <guid>http://dastrasmue.github.io/hugo/adding-content/</guid>
       <description>
 
 &lt;h2 id=&#34;hello-world&#34;&gt;Hello world&lt;/h2&gt;
