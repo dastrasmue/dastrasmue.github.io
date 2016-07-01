@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Dastrasmue&#39;s Blog</title>
+    <link>https://dastrasmue.github.io/hugo/projects/</link>
+    <description>Recent content in Projects on Dastrasmue&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Jul 2016 13:59:23 +0200</lastBuildDate>
+    <atom:link href="https://dastrasmue.github.io/hugo/projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Software Projects</title>
+      <link>https://dastrasmue.github.io/hugo/projects/</link>
+      <pubDate>Fri, 01 Jul 2016 13:59:23 +0200</pubDate>
+      
+      <guid>https://dastrasmue.github.io/hugo/projects/</guid>
+      <description>
+
+&lt;h2 id=&#34;docker-images-for-raspberry-pi&#34;&gt;Docker Images for Raspberry Pi&lt;/h2&gt;
+
+&lt;p&gt;I created/ported some Docker Images that run on a Raspberry Pi and are useful in a home server scenario. All the images are publicly accessible from the default docker registry, the &lt;a href=&#34;https://hub.docker.com/u/dastrasmue/&#34;&gt;Docker Hub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;samba&#34;&gt;Samba&lt;/h3&gt;
+
+&lt;p&gt;Samba allows you to share folders on your PC in your home network. The shares can have certain permissions, so that only the defined users can access the share after entering the correct password.
+The image is based on &lt;a href=&#34;https://www.alpinelinux.org/&#34;&gt;Alpine Linux&lt;/a&gt;, which is a Linux distribution with minimal size (only about 5MB). Busybox is another possible small base image, however Busybox doesn&amp;rsquo;t have a packet manager. That makes it rather hard to install stuff.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/dastrasmue/rpi-samba&#34;&gt;Source on GitHub&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;https://hub.docker.com/r/dastrasmue/rpi-samba/&#34;&gt;Image on Docker Hub&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;run-example&#34;&gt;run example:&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker run -d \
+  -p 137:137/udp \
+  -p 138:138/udp \
+  -p 139:139 \
+  -p 445:445 \
+  -p 445:445/udp \
+  --restart=&#39;always&#39; \
+  --hostname &#39;filer&#39; \
+  -v /media/stick:/share/stick \
+  --name samba dastrasmue/rpi-samba:v3 \
+  -u &amp;quot;alice:abc123&amp;quot; \
+  -u &amp;quot;bob:secret&amp;quot; \
+  -s &amp;quot;Backup directory:/share/stick/backups:rw:alice,bob&amp;quot; \
+  -s &amp;quot;Alice (private):/share/stick/data/alice:rw:alice&amp;quot; \
+  -s &amp;quot;Bob (private):/share/stick/data/bob:rw:bob&amp;quot; \
+  -s &amp;quot;Documents (readonly):/share/stick/data/documents:ro:alice,bob&amp;quot;
+  -s &amp;quot;Public (readonly):/share/stick/data/public:ro:&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
