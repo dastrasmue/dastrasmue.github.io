@@ -8,18 +8,18 @@
   <head lang="en-us">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
-    <title>License - Dastrasmue&#39;s Blog</title>
+    <title>Software Projects - Dastrasmue&#39;s Blog</title>
     <meta name="generator" content="Hugo 0.16-DEV" />
 
     
     <meta name="description" content="A material design theme for documentations.">
     
-    <link rel="canonical" href="https://dastrasmue.github.io/hugo/license/">
+    <link rel="canonical" href="https://dastrasmue.github.io/hugo/projects/">
     
     <meta name="author" content="Digitalcraftsman">
     
 
-    <meta property="og:url" content="https://dastrasmue.github.io/hugo/license/">
+    <meta property="og:url" content="https://dastrasmue.github.io/hugo/projects/">
     <meta property="og:title" content="Dastrasmue&#39;s Blog">
     <meta property="og:image" content="https://dastrasmue.github.io/hugo/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="Dastrasmue&#39;s Blog">
@@ -93,7 +93,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        License
+        Software Project
       </div>
     </div>
 
@@ -175,11 +175,14 @@
 
 
 
-<a  title="Software Projects" href="https://dastrasmue.github.io/hugo/projects/">
+<a class="current" title="Software Projects" href="https://dastrasmue.github.io/hugo/projects/">
 	
 	Software Projects
 </a>
 
+
+<ul id="scrollspy">
+</ul>
 
   
 </li>
@@ -243,14 +246,11 @@
 
 
 
-<a class="current" title="License" href="https://dastrasmue.github.io/hugo/license/">
+<a  title="License" href="https://dastrasmue.github.io/hugo/license/">
 	
 	License
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
   
 </li>
@@ -284,28 +284,42 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>License </h1>
+			<h1>Software Projects </h1>
 
-			<p>Copyright &copy; 2016 Digitalcraftsman <a href="mailto:digitalcraftsman@protonmail.com">digitalcraftsman@protonmail.com</a><br>
-Copyright &copy; 2016 Martin Donath <a href="mailto:martin.donath@squidfunk.com">martin.donath@squidfunk.com</a></p>
+			
 
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the &ldquo;Software&rdquo;), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:</p>
+<h2 id="docker-images-for-raspberry-pi">Docker Images for Raspberry Pi</h2>
 
-<p>The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.</p>
+<p>I created/ported some Docker Images that run on a Raspberry Pi and are useful in a home server scenario. All the images are publicly accessible from the default docker registry, the <a href="https://hub.docker.com/u/dastrasmue/">Docker Hub</a>.</p>
 
-<p>THE SOFTWARE IS PROVIDED &ldquo;AS IS&rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.</p>
+<h3 id="samba">Samba</h3>
+
+<p>Samba allows you to share folders on your PC in your home network. The shares can have certain permissions, so that only the defined users can access the share after entering the correct password.
+The image is based on <a href="https://www.alpinelinux.org/">Alpine Linux</a>, which is a Linux distribution with minimal size (only about 5MB). Busybox is another possible small base image, however Busybox doesn&rsquo;t have a packet manager. That makes it rather hard to install stuff.</p>
+
+<p><a href="https://github.com/dastrasmue/rpi-samba">Source on GitHub</a><br />
+<a href="https://hub.docker.com/r/dastrasmue/rpi-samba/">Image on Docker Hub</a></p>
+
+<h4 id="run-example">run example:</h4>
+
+<pre><code class="language-bash">docker run -d \
+  -p 137:137/udp \
+  -p 138:138/udp \
+  -p 139:139 \
+  -p 445:445 \
+  -p 445:445/udp \
+  --restart='always' \
+  --hostname 'filer' \
+  -v /media/stick:/share/stick \
+  --name samba dastrasmue/rpi-samba:v3 \
+  -u &quot;alice:abc123&quot; \
+  -u &quot;bob:secret&quot; \
+  -s &quot;Backup directory:/share/stick/backups:rw:alice,bob&quot; \
+  -s &quot;Alice (private):/share/stick/data/alice:rw:alice&quot; \
+  -s &quot;Bob (private):/share/stick/data/bob:rw:bob&quot; \
+  -s &quot;Documents (readonly):/share/stick/data/documents:ro:alice,bob&quot;
+  -s &quot;Public (readonly):/share/stick/data/public:ro:&quot;
+</code></pre>
 
 
 			<aside class="copyright" role="note">
@@ -324,25 +338,25 @@ IN THE SOFTWARE.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://dastrasmue.github.io/hugo/roadmap/" title="Roadmap">
-        <span class="direction">
-          Previous
-        </span>
-        <div class="page">
-          <div class="button button-previous" role="button" aria-label="Previous">
-            <i class="icon icon-back"></i>
-          </div>
-          <div class="stretch">
-            <div class="title">
-              Roadmap
-            </div>
-          </div>
-        </div>
-      </a>
-  
   </div>
 
   <div class="next">
+  
+      <a href="https://dastrasmue.github.io/hugo/" title="Material for Hugo">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Material for Hugo
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
   
   </div>
 </nav>
