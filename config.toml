@@ -52,7 +52,7 @@ googleAnalytics = ""
 [[menu.main]]
 	name   = "Software Projects"
 	url    = "projects/"
-	weight = 0
+	weight = 5
 
 [[menu.main]]
 	name   = "Getting started"

@@ -1,6 +1,7 @@
 ---
 date: 2016-07-01T13:59:23+02:00
 title: Software Projects
+weight: 5
 ---
 
 ## Docker Images for Raspberry Pi
