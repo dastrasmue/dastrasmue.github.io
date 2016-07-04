@@ -321,6 +321,38 @@ The image is based on <a href="https://www.alpinelinux.org/">Alpine Linux</a>, w
   -s &quot;Public (readonly):/share/stick/data/public:ro:&quot;
 </code></pre>
 
+<h3 id="owncloud">ownCloud</h3>
+
+<p>Most people know <a href="https://www.dropbox.com/">Dropbox</a>, a service to sync all your files between devices and to store data in the cloud. You reached the storage limit and don&rsquo;t want to buy pro? You don&rsquo;t want to give away your data to a company, but still want to have all the advantages of a cloud service? Then host your own data cloud using <a href="https://owncloud.org">ownCloud</a>!<br />
+This image will provide you with a ready-to-run experience of your personal ownCloud installation.</p>
+
+<p><a href="https://github.com/dastrasmue/rpi-owncloud">Source on GitHub</a><br />
+<a href="https://hub.docker.com/r/dastrasmue/rpi-owncloud/">Image on Docker Hub</a></p>
+
+<h4 id="run-instructions">run instructions:</h4>
+
+<p>To get owncloud running, you have to do a few simple steps:</p>
+
+<ol>
+<li><p>checkout the docker-compose.yml and folder structure from <a href="https://github.com/dastrasmue/rpi-owncloud.git">https://github.com/dastrasmue/rpi-owncloud.git</a></p>
+
+<pre><code class="language-bash">git clone https://github.com/dastrasmue/rpi-owncloud.git &amp;&amp; cd rpi-owncloud
+</code></pre></li>
+
+<li><p>set the OWNCLOUD_SERVERNAME in docker-compose.yml to the public ip address that points to your raspberry, e.g.</p>
+
+<pre><code class="language-bash">vim docker-compose.yml
+...
+OWNCLOUD_SERVERNAME: user123.no-ip.org
+...
+</code></pre></li>
+
+<li><p>start the database and owncloud server with docker-compose</p>
+
+<pre><code class="language-bash">docker-compose up
+</code></pre></li>
+</ol>
+
 
 			<aside class="copyright" role="note">
 				
