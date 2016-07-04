@@ -49,6 +49,38 @@ The image is based on &lt;a href=&#34;https://www.alpinelinux.org/&#34;&gt;Alpin
   -s &amp;quot;Documents (readonly):/share/stick/data/documents:ro:alice,bob&amp;quot;
   -s &amp;quot;Public (readonly):/share/stick/data/public:ro:&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;owncloud&#34;&gt;ownCloud&lt;/h3&gt;
+
+&lt;p&gt;Most people know &lt;a href=&#34;https://www.dropbox.com/&#34;&gt;Dropbox&lt;/a&gt;, a service to sync all your files between devices and to store data in the cloud. You reached the storage limit and don&amp;rsquo;t want to buy pro? You don&amp;rsquo;t want to give away your data to a company, but still want to have all the advantages of a cloud service? Then host your own data cloud using &lt;a href=&#34;https://owncloud.org&#34;&gt;ownCloud&lt;/a&gt;!&lt;br /&gt;
+This image will provide you with a ready-to-run experience of your personal ownCloud installation.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/dastrasmue/rpi-owncloud&#34;&gt;Source on GitHub&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;https://hub.docker.com/r/dastrasmue/rpi-owncloud/&#34;&gt;Image on Docker Hub&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;run-instructions&#34;&gt;run instructions:&lt;/h4&gt;
+
+&lt;p&gt;To get owncloud running, you have to do a few simple steps:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;checkout the docker-compose.yml and folder structure from &lt;a href=&#34;https://github.com/dastrasmue/rpi-owncloud.git&#34;&gt;https://github.com/dastrasmue/rpi-owncloud.git&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/dastrasmue/rpi-owncloud.git &amp;amp;&amp;amp; cd rpi-owncloud
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;set the OWNCLOUD_SERVERNAME in docker-compose.yml to the public ip address that points to your raspberry, e.g.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;vim docker-compose.yml
+...
+OWNCLOUD_SERVERNAME: user123.no-ip.org
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;start the database and owncloud server with docker-compose&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker-compose up
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
 </description>
     </item>
     
@@ -338,11 +370,6 @@ accounts to the drawer by setting the variables &lt;code&gt;github&lt;/code&gt; 
   smartDashes = true
   plainIDAnchors = true
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;daniels-anmerkungen&#34;&gt;Daniels Anmerkungen&lt;/h2&gt;
-
-&lt;p&gt;balblabla
-blablabla&lt;/p&gt;
 </description>
     </item>
     
